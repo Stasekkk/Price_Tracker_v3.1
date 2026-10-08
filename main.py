@@ -20,10 +20,11 @@ from scraper import get_phone_data, find_chrome_path
 from locales import (
     t, get_button_variants, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE
 )
+from wizard import ensure_environment
 
 # --- 1. CONFIGURATION & INITIALIZATION ---
 load_dotenv()
-API_TOKEN = os.getenv("TELEGRAM_TOKEN")
+API_TOKEN = os.getenv("TELEGRAM_TOKEN", "1234567890:ABCdefGHIjklMNOpqrSTUvwxYZ")
 ADMIN_IDS = [int(x.strip()) for x in os.getenv("ADMIN_IDS", "").split(",") if x.strip()]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
@@ -803,6 +804,14 @@ async def change_time_process(message: types.Message, state: FSMContext):
 
 # --- 5. ENTRY POINT (MAIN) ---
 async def main():
+    # 0. Ensure environment configuration exists
+    ensure_environment()
+    load_dotenv(override=True)
+    global API_TOKEN, ADMIN_IDS, bot
+    API_TOKEN = os.getenv("TELEGRAM_TOKEN")
+    ADMIN_IDS = [int(x.strip()) for x in os.getenv("ADMIN_IDS", "").split(",") if x.strip()]
+    bot = Bot(token=API_TOKEN)
+
     # 1. Initialize database and admin users
     init_db()
     setup_admins()

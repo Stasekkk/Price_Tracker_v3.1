@@ -191,6 +191,12 @@ class TestTrackerLogic(unittest.TestCase):
         for chunk in chunks:
             self.assertLessEqual(len(chunk), 3800)
 
+    def test_wizard_module_available(self):
+        """Test wizard module imports and exposes functions"""
+        import wizard
+        self.assertTrue(callable(wizard.run_setup_wizard))
+        self.assertTrue(callable(wizard.ensure_environment))
+
 
 if __name__ == "__main__":
     unittest.main()

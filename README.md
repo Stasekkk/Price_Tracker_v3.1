@@ -1,6 +1,14 @@
-# 🛒 Price Tracker Bot (Telegram)
+# 🛒 Price Tracker Bot (Telegram) — v3.2
 
 An asynchronous Telegram bot for automated price monitoring and stock availability tracking on the e-commerce platform **Allo.ua**.
+
+---
+
+### 🆕 What's New in v3.2 (Plug & Play Update)
+- ⚡️ **1-Click Automated Installers:** Added `install.sh` (Linux/macOS) and `install.bat` (Windows) for zero-friction dependency setup.
+- 🚀 **1-Click Launchers:** Added `run.sh` and `run.bat` for instant bot startup.
+- 🧙‍♂️ **Interactive Setup Wizard:** Built-in terminal wizard (`wizard.py`) automatically configures `.env` on first launch.
+- 🌐 **Full i18n Localization:** Dual language support (Ukrainian 🇺🇦 & English 🇬🇧) with in-bot switching and multilingual broadcasts.
 
 ---
 
@@ -31,11 +39,16 @@ An asynchronous Telegram bot for automated price monitoring and stock availabili
 
 ```text
 ├── main.py            # Entry point: bot handlers, menus, scheduler, and FSM
+├── wizard.py          # Interactive first-run setup wizard (creates .env)
 ├── locales.py         # Multi-language dictionary (UK / EN) and i18n helper functions
 ├── scraper.py         # Scraping engine powered by DrissionPage (cross-platform)
 ├── database.py        # Database schema (SQLAlchemy), migrations, and session management
 ├── test_tracker.py    # Automated unit and integration test suite
 ├── requirements.txt   # Project dependencies
+├── install.sh         # 1-Click installer for Linux & macOS
+├── install.bat        # 1-Click installer for Windows
+├── run.sh             # 1-Click runner for Linux & macOS
+├── run.bat            # 1-Click runner for Windows
 ├── .env.example       # Environment configuration template
 ├── LICENSE            # MIT License
 └── README.md          # Project documentation
@@ -43,12 +56,35 @@ An asynchronous Telegram bot for automated price monitoring and stock availabili
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Quick Start (1-Click Automated Setup)
+
+### Linux & macOS:
+```bash
+git clone https://github.com/your-username/tracker_v3.git
+cd tracker_v3
+
+# 1. Run automated installer (creates .venv and installs dependencies)
+./install.sh
+
+# 2. Start the bot (runs interactive setup wizard on first launch)
+./run.sh
+```
+
+### Windows:
+1. Clone or download the repository.
+2. Double-click **`install.bat`** to create virtual environment and install packages.
+3. Double-click **`run.bat`** to start the bot.
+
+> 💡 **First-Run Wizard:** If `.env` is not found, the bot will automatically launch an interactive terminal wizard asking for your Telegram Bot Token and Admin ID, and create `.env` for you!
+
+---
+
+## 🛠 Manual Installation & Setup (Alternative)
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Stasekkk/Price_Tracker_v3.1.git
-cd Price_Tracker_v3.1
+git clone https://github.com/your-username/tracker_v3.git
+cd tracker_v3
 ```
 
 ### 2. Create and activate a virtual environment
