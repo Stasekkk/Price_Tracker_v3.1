@@ -60,8 +60,8 @@ An asynchronous Telegram bot for automated price monitoring and stock availabili
 
 ### Linux & macOS:
 ```bash
-git clone https://github.com/your-username/tracker_v3.git
-cd tracker_v3
+git clone https://github.com/Stasekkk/Price_Tracker_v3.1.git
+cd Price_Tracker_v3.1
 
 # 1. Run automated installer (creates .venv and installs dependencies)
 ./install.sh
@@ -83,8 +83,8 @@ cd tracker_v3
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/tracker_v3.git
-cd tracker_v3
+git clone https://github.com/Stasekkk/Price_Tracker_v3.1.git
+cd Price_Tracker_v3.1
 ```
 
 ### 2. Create and activate a virtual environment
